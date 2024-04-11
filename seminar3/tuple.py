@@ -1,0 +1,5 @@
+my_tuple = (2, 3, 4, 56, 2, 2, 5, 6)
+print(my_tuple[-3])
+print(my_tuple[2:4:2])
+print(my_tuple.index(6, 2))
+print(f'{my_tuple = }')
