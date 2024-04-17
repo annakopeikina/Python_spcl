@@ -1,8 +1,8 @@
 #Возьмите задачу о банкомате из семинара 2:
 #Напишите программу банкомат.
 #Начальная сумма равна нулю, Допустимые действия: пополнить, снять, выйти
-#Сумма пополнения и снятия кратны 50 у.е.
-#Процент за снятие — 1.5% от суммы снятия, но не менее 30 и не более 600 у.е.
+#Сумма пополнения и снятия кратны 50 GEL
+#Процент за снятие — 1.5% от суммы снятия, но не менее 30 и не более 600 GEL
 #После каждой третей операции пополнения или снятия начисляются проценты - 3%
 #Нельзя снять больше, чем на счёте
 #При превышении суммы в 5 млн, вычитать налог на богатство 10% перед каждой операцией, даже ошибочной
@@ -38,7 +38,7 @@ def withdraw(amount: int) -> None:
         commission = min(commission, COMMISSION_MAX)
         balance -= (amount + commission)
         transactions.append(('withdraw', amount + commission))
-        print(f"Снято {amount} GEL")
+        print(f"Снято {amount} GEL Комиссия составила: {commission} GEL")
     else:
         print("Недостаточно средств на счете.")
 
@@ -48,7 +48,7 @@ def tax() -> None:
     """
     global balance
     global transactions
-    balance = balance * (1 - TAX_RATE) # balance*=(1 - TAX_RATE)
+    balance *= (1 - TAX_RATE)
     transactions = [(operation, amount * (1 - TAX_RATE)) for operation, amount in transactions]
 
 def atm() -> None:
