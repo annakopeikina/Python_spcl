@@ -26,6 +26,7 @@ def deposit(amount: int) -> None:
     global balance
     balance += amount
     transactions.append(('deposit', amount))
+    print(f"Поступило {amount} GEL")
 
 def withdraw(amount: int) -> None:
     """
@@ -35,8 +36,9 @@ def withdraw(amount: int) -> None:
     if balance - amount >= 0:
         commission = max(amount * COMMISSION_RATE, COMMISSION_MIN)
         commission = min(commission, COMMISSION_MAX)
-        balance = balance - (amount + commission) # balance -= (amount + commission)
+        balance -= (amount + commission)
         transactions.append(('withdraw', amount + commission))
+        print(f"Снято {amount} GEL")
     else:
         print("Недостаточно средств на счете.")
 
@@ -56,7 +58,7 @@ def atm() -> None:
     global balance
     global transactions
     while True:
-        print("Баланс: ", balance)
+        print("Баланс: ", balance, "GEL")
         print("Выберите действие:")
         print("1. Пополнить")
         print("2. Снять")
