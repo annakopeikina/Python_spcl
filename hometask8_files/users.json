@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "name": "Snow",
+            "user_id": "11211101",
+            "access_level": 1
+        },
+        {
+            "name": "Orange",
+            "user_id": "8062024",
+            "access_level": 7
+        },
+        {
+            "name": "April",
+            "user_id": "524344",
+            "access_level": 1
+        }
+    ]
+}

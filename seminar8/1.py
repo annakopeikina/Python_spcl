@@ -36,15 +36,22 @@ csv_to_json(input_csv_file, output_json_file)
 
 
 import json
+import os
 
+def text_to_json(name='name_number_multiplication.txt'):
+    # Определяем путь к директории исходного файла
+    directory = os.path.dirname(name)
+    # Определяем имя и расширение исходного файла
+    filename, _ = os.path.splitext(os.path.basename(name))
+    # Формируем путь к JSON файлу в той же директории
+    json_path = os.path.join(directory, f'{filename}.json')
 
-def text_to_json(name='res.txt'):
     with open(name, 'r', encoding='utf-8') as f, \
-         open('res.json', 'w', encoding='utf-8') as f2:
-        res_list = []
+         open(json_path, 'w', encoding='utf-8') as f2:
+        name_number_multiplication_list = []
         for line in f:
-            res_list.append(line.strip().capitalize())
-        json.dump(res_list, f2, indent=4)
+           name_number_multiplication_list.append(line.strip().capitalize())
+        json.dump(name_number_multiplication_list, f2, indent=4)
 
 if __name__ == '__main__':
-    text_to_json()
+    text_to_json('C:/Users/akopeikina/OneDrive/Desktop/Python_spcl/seminar8/name_number_multiplication.txt')
